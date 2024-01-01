@@ -4,6 +4,6 @@ namespace DoggoDollars.WebAPI.Controllers;
 
 [ApiController]
 [Route("users")]
-public class UserController : ControllerBase
+public class AccountController : ControllerBase
 {
 }

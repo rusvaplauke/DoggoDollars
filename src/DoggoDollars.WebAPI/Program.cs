@@ -1,4 +1,8 @@
 
+using Infrastructure;
+using Application;
+using DoggoDollars.WebAPI.Middlewares;
+
 namespace DoggoDollars.WebAPI
 {
     public class Program
@@ -13,6 +17,8 @@ namespace DoggoDollars.WebAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddInfrastructure();
+            builder.Services.AddApplication();
 
             var app = builder.Build();
 
@@ -23,10 +29,11 @@ namespace DoggoDollars.WebAPI
                 app.UseSwaggerUI();
             }
 
+            app.UseMiddleware<ErrorHandlingMiddleware>();
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
