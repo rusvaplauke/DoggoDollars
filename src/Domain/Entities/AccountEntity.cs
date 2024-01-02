@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities;
 
-internal class AccountEntity
+public class AccountEntity
 {
     public string Id { get; set; } = "";
     public int UserId { get; set; }

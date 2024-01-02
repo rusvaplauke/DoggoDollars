@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities;
 
-internal class TransactionEntity
+public class TransactionEntity
 {
     public Guid Id {  get; set; }
     public DateTime Timestamp {  get; set; } = DateTime.UtcNow;
