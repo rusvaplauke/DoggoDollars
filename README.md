@@ -13,6 +13,9 @@ Functional requirements:
 1 
 11. User should be able to send money to another user. Lets call it transaction
   
-13. It should be possible to retrieve all transaction information for a user.
+7. It should be possible to retrieve all transaction information for an account:
+    I need to be able (given userid), tops, money sent, received.
+   
+9. Transaction costs 1 euro.
 
-15. Transaction costs 1 euro.
+
