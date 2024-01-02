@@ -10,6 +10,7 @@ internal class TransactionEntity
 {
     public Guid Id {  get; set; }
     public DateTime Timestamp {  get; set; } = DateTime.UtcNow;
+    public int TransactionTypeId { get; set; }
     public string FromAccount { get; set; } = "";
     public string ToAccount { get; set; } = "";
     public decimal Amount { get; set; }

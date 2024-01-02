@@ -7,16 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Scripts\001 Create tables.sql" />
-    <None Remove="Scripts\002 Add types.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Scripts\001 Create tables.sql" />
-    <EmbeddedResource Include="Scripts\002 Add types.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
   </ItemGroup>
 
