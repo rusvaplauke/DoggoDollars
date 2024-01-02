@@ -14,11 +14,18 @@ internal class UserRepository : IUserRepository
         _connection = connection;
     }
 
-    public async Task<UserEntity?> GetAsync(string name)
+    public async Task<UserEntity?> GetByNameAsync(string name)
     {
         var sql = "SELECT * FROM \"Users\" WHERE \"Name\" = @name AND \"IsDeleted\" = FALSE;";
         
         return await _connection.QuerySingleOrDefaultAsync<UserEntity>(sql, new { name = name });
+    }
+
+    public async Task<UserEntity?> GetByIdAsync(int id)
+    {
+        var sql = "SELECT * FROM \"Users\" WHERE \"Id\" = @id AND \"IsDeleted\" = FALSE;";
+
+        return await _connection.QuerySingleOrDefaultAsync<UserEntity>(sql, new { id = id });
     }
 
     public async Task<UserEntity> CreateAsync(UserEntity user)

@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities;
+namespace Application.Dtos;
 
-public class AccountEntity
+public class CreateAccount
 {
-    public string Id { get; set; } = "";
     public int UserId { get; set; }
     public int TypeId { get; set; }
-    public decimal Balance { get; set; } = 0;
-    public Boolean IsDeleted { get; set; } = false;
 }
