@@ -22,4 +22,10 @@ public class AccountController : ControllerBase
 
         return Created(nameof(CreateAsync), createdAccount);
     }
+
+    [HttpPost("{id}/top-up")]
+    public async Task<IActionResult> TopUpAsync(string id, [FromBody] TopUpAmount amount)
+    {
+        return Ok(await _accountService.TopUpAsync(id, amount.Amount));
+    }
 }

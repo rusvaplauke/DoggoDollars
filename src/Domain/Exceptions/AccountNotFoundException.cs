@@ -8,7 +8,7 @@ namespace Domain.Exceptions;
 
 public class AccountNotFoundException : Exception
 {
-    public AccountNotFoundException(int accountNumber) : base($"Account {accountNumber} not found.")
+    public AccountNotFoundException(string accountId) : base($"Account {accountId} not found.")
     {
 
     }

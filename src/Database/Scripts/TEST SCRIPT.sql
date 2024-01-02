@@ -1,1 +1,0 @@
-﻿INSERT INTO "Users" ("Name", "Address") VALUES ('Ponas Makaronas', 'Ziedlapiu 15, Kaunas');

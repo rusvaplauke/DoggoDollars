@@ -15,12 +15,14 @@ public class AccountService
 {
     private readonly IAccountRepository _accountRepository;
     private readonly IUserRepository _userRepository;
+    private readonly ITransactionRepository _transactionRepository;
     private readonly IMapper _mapper;
 
-    public AccountService(IAccountRepository accountRepository, IUserRepository userRepository, IMapper mapper)
+    public AccountService(IAccountRepository accountRepository, IUserRepository userRepository, ITransactionRepository transactionRepository, IMapper mapper)
     {
         _accountRepository = accountRepository;
         _userRepository = userRepository;
+        _transactionRepository = transactionRepository;
         _mapper = mapper;
     }
 
@@ -46,6 +48,27 @@ public class AccountService
         AccountEntity createdAccount = await _accountRepository.CreateAsync(newAccount);
 
         return _mapper.Map<Account>(createdAccount);
+    }
+
+    public async Task<Account> TopUpAsync(string id, decimal amount)
+    {
+        if (await _accountRepository.GetAsync(id) is null)
+            throw new AccountNotFoundException(id);
+
+        Transaction transaction = new Transaction
+        {
+            TypeId = 1,
+            Timestamp = DateTime.UtcNow,
+            FromAccount = "",
+            ToAccount = id,
+            Amount = amount,
+            Fees = 0
+        };
+
+        await _transactionRepository.RegisterAsync(_mapper.Map<TransactionEntity>(transaction));
+        AccountEntity updatedAccount = await _accountRepository.ChangeBalanceAsync(id, amount);
+
+        return _mapper.Map<Account>(updatedAccount);
     }
 
     private string GenerateAccountNumber()
