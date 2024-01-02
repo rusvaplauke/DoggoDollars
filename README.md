@@ -24,4 +24,5 @@ Functional requirements:
 
 Personal improvement ideas: 
 - full crud (for troubleshooting/testing)
+- add indices
 - "transfer money" -> from default -> if not enough money, from savings
