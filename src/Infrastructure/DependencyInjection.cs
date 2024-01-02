@@ -12,18 +12,9 @@ public static class DependencyInjection
 {
     public static void AddInfrastructure(this IServiceCollection services)
     {
-        // string dbConnectionString = Configuration.GetConnectionString("PostgreConnection") ?? throw new ArgumentNullException();
-
-        string dbConnectionString = "User ID=postgres;Password=LabasRytas123;Host=localhost;Port=5432;Database=DoggoDollarsDB;"; // TODO: replace from hardcoded
+        // TODO: replace from hardcoded
+        string dbConnectionString = "User ID=postgres;Password=LabasRytas123;Host=localhost;Port=5432;Database=DoggoDollarsDB;"; 
         services.AddTransient<IDbConnection>(sp => new NpgsqlConnection(dbConnectionString));
-        EnsureDatabase.For.PostgresqlDatabase(dbConnectionString);
-        var upgrader = DeployChanges.To
-            .PostgresqlDatabase(dbConnectionString)
-            .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly())
-            .LogToNowhere()
-            .Build();
-        var result = upgrader.PerformUpgrade();
-
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IAccountRepository, AccountRepository>();
         services.AddScoped<ITransactionRepository, TransactionRepository>();
