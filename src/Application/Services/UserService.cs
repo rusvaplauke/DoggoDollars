@@ -24,7 +24,7 @@ public class UserService
 
     public async Task<User> CreateAsync(User user)
     {
-        if (await _userRepository.GetAsync(user.Name) is not null)
+        if (await _userRepository.GetByNameAsync(user.Name) is not null)
             throw new UserExistsException(user.Name);
 
         UserEntity createdUser = await _userRepository.CreateAsync(_mapper.Map<UserEntity>(user));
