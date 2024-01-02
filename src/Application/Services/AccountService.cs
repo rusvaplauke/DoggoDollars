@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Application.Services;
 
-internal class AccountService
+public class AccountService
 {
 }

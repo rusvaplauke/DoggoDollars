@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using Application.Dtos;
+using AutoMapper;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,7 @@ internal class UserProfile : Profile
 {
     public UserProfile()
     {
-        
+        CreateMap<UserEntity, User>();
+        CreateMap<UserEntity, User>().ReverseMap();
     }
 }

@@ -46,6 +46,9 @@ public class ErrorHandlingMiddleware
             case MaxAccountsException:
                 statusCode = (int)HttpStatusCode.Conflict;
                 break;
+            case UserExistsException:
+                statusCode = (int)HttpStatusCode.Conflict;
+                break;
             default:
                 statusCode = (int)HttpStatusCode.InternalServerError;
                 break;
