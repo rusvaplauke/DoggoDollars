@@ -20,3 +20,8 @@ Functional requirements:
 9. Transaction costs 1 euro.
 
 
+
+
+Personal improvement ideas: 
+- full crud (for troubleshooting/testing)
+- "transfer money" -> from default -> if not enough money, from savings
