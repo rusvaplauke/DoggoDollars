@@ -4,9 +4,9 @@ Functional requirements:
 
 <del> 1. You should be able to create an user (name, address)</del>
 
-3. You should be able to create an account for a user.
+<del> 3. You should be able to create an account for a user.</del>
   
-5. User can only have max 2 accounts.
+<del> 5. User can only have max 2 accounts.</del>
   
 <del> 7. Account can have a type "Saving"/"Default" and a balance.</del>
   
