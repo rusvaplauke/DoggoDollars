@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Applicat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoggoDollars.WebAPI", "src\DoggoDollars.WebAPI\DoggoDollars.WebAPI.csproj", "{23BB39A7-473A-42C9-8EF3-C45C3DBE76F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "src\Database\Database.csproj", "{AAC3215B-3971-4ED6-B008-C6596DD88372}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{23BB39A7-473A-42C9-8EF3-C45C3DBE76F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23BB39A7-473A-42C9-8EF3-C45C3DBE76F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23BB39A7-473A-42C9-8EF3-C45C3DBE76F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC3215B-3971-4ED6-B008-C6596DD88372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC3215B-3971-4ED6-B008-C6596DD88372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC3215B-3971-4ED6-B008-C6596DD88372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC3215B-3971-4ED6-B008-C6596DD88372}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{89622F05-CD3D-4C74-A9FD-C8A5187BB419} = {3F00D482-51F1-4E26-AC6E-E734FC8183BE}
 		{1D66818A-5E2F-4BB7-B78B-3C64E76B09A6} = {3F00D482-51F1-4E26-AC6E-E734FC8183BE}
 		{23BB39A7-473A-42C9-8EF3-C45C3DBE76F4} = {3F00D482-51F1-4E26-AC6E-E734FC8183BE}
+		{AAC3215B-3971-4ED6-B008-C6596DD88372} = {3F00D482-51F1-4E26-AC6E-E734FC8183BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF7326C3-B1AF-4D7E-9D92-26D1F9415A17}
