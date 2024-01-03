@@ -22,10 +22,13 @@ internal class TransactionRepository : ITransactionRepository
 
     public async Task RegisterAsync(TransactionEntity transaction)
     {
-
-        // change constraint on FromAccount
         var sql = "INSERT INTO \"Transactions\" (\"TypeId\", \"FromAccount\", \"ToAccount\", \"Amount\", \"Fees\", \"Timestamp\") VALUES (@TypeId, @FromAccount, @ToAccount, @Amount, @Fees, @Timestamp);";
 
         await _connection.ExecuteAsync(sql, transaction);
+    }
+
+   public async Task<List<TransactionEntity>> GetAsync()
+    {
+        return (await _connection.QueryAsync<TransactionEntity>("SELECT * FROM \"Transactions\";")).ToList();
     }
 }

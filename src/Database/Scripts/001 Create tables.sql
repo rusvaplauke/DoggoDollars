@@ -35,5 +35,5 @@ CREATE TABLE "Transactions" (
 	"Fees" DECIMAL,
 	FOREIGN KEY ("FromAccount") REFERENCES "Accounts"("Id"),
 	FOREIGN KEY ("ToAccount") REFERENCES "Accounts"("Id"),
-	FOREIGN KEY ("TransactionType") REFERENCES "TransactionTypes"("Id")
+	FOREIGN KEY ("TypeId") REFERENCES "TransactionTypes"("Id")
 );
