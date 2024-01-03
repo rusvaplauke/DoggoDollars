@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Application.Dtos;
+﻿using Application.Dtos;
 using AutoMapper;
 using Domain.Entities;
-using Domain.Interfaces;
 using Domain.Exceptions;
-using System.Diagnostics;
-using Application.Dtos;
+using Domain.Interfaces;
 
 namespace Application.Services;
 
@@ -35,13 +28,11 @@ public class TransactionService
         return transactions.Select(t => _mapper.Map<Transaction>(t)).ToList();
     }
 
-    public async Task<Transaction> PostAsync(TransactionRequest transaction)
+    public async Task PostAsync(TransactionRequest transaction)
     {
         await VerifyTransaction(transaction);
         await RegisterTransaction(transaction);
         await UpdateBalances(transaction);
-
-        return new Transaction();
     }
 
     private async Task VerifyTransaction(TransactionRequest transaction)
@@ -51,7 +42,7 @@ public class TransactionService
 
         if (transaction.Amount <= 0)
             throw new InvalidAmountException();
-        
+
         if (sender is null)
             throw new AccountNotFoundException(transaction.SenderAccount);
 

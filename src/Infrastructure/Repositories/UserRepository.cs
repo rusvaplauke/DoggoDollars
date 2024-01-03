@@ -1,7 +1,7 @@
-﻿using Domain.Interfaces;
-using System.Data;
+﻿using Dapper;
 using Domain.Entities;
-using Dapper;
+using Domain.Interfaces;
+using System.Data;
 
 namespace Infrastructure.Repositories;
 
@@ -17,7 +17,7 @@ internal class UserRepository : IUserRepository
     public async Task<UserEntity?> GetByNameAsync(string name)
     {
         var sql = "SELECT * FROM \"Users\" WHERE \"Name\" = @name AND \"IsDeleted\" = FALSE;";
-        
+
         return await _connection.QuerySingleOrDefaultAsync<UserEntity>(sql, new { name = name });
     }
 

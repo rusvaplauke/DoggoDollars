@@ -18,14 +18,18 @@ public class TransactionController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAsync()
     {
-        return Ok(await _transactionService.GetAsync());
+        var transactions = await _transactionService.GetAsync();
+
+        if (transactions.Any())
+            return Ok(transactions);
+        else
+            return NoContent();
     }
 
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody] TransactionRequest transaction)
     {
-        Transaction result = await _transactionService.PostAsync(transaction);
-        
-        return Created(nameof(PostAsync), result);
+        await _transactionService.PostAsync(transaction);
+        return Ok();
     }
 }

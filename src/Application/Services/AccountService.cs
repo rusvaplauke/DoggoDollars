@@ -3,11 +3,6 @@ using AutoMapper;
 using Domain.Entities;
 using Domain.Exceptions;
 using Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services;
 
@@ -76,6 +71,6 @@ public class AccountService
     private string GenerateAccountNumber()
     {
         var randomNumber = new Random();
-        return $"LT{randomNumber.Next(100000,999999)}";
+        return $"LT{randomNumber.Next(100000, 999999)}";
     }
 }

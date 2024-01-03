@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.Dtos;
 using Application.Services;
-using Application.Dtos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DoggoDollars.WebAPI.Controllers;
 
@@ -21,11 +21,5 @@ public class UserController : ControllerBase
         User createdUser = await _userService.CreateAsync(user);
 
         return Created(nameof(CreateAsync), createdUser);
-    }
-
-    [HttpGet("{id}/transactions")]
-    public async Task<IActionResult> GetAsync(int id)
-    {
-        return Ok(await _userService.GetAsync(id));
     }
 }
