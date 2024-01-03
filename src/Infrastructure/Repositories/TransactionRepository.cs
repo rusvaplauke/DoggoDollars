@@ -31,4 +31,11 @@ internal class TransactionRepository : ITransactionRepository
     {
         return (await _connection.QueryAsync<TransactionEntity>("SELECT * FROM \"Transactions\";")).ToList();
     }
+
+    public async Task<List<TransactionEntity>> GetAsync(int id)
+    {
+       
+        
+        // return (await _connection.QueryAsync<TransactionEntity>("SELECT * FROM \"Transactions\";")).ToList();
+    }
 }

@@ -22,4 +22,10 @@ public class UserController : ControllerBase
 
         return Created(nameof(CreateAsync), createdUser);
     }
+
+    [HttpGet("{id}/transactions")]
+    public async Task<IActionResult> GetAsync(int id)
+    {
+        return Ok(await _userService.GetAsync(id));
+    }
 }
