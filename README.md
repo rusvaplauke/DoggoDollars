@@ -14,8 +14,8 @@ Functional requirements:
  
 11. User should be able to send money to another user. Lets call it transaction
   
-7. It should be possible to retrieve all transaction information for an account:
-    I need to be able (given userid), tops, money sent, received.
+<del> 7. It should be possible to retrieve all transaction information for an account:
+    I need to be able (given userid), tops, money sent, received.</del>
    
 9. Transaction costs 1 euro.
 
@@ -25,7 +25,6 @@ Functional requirements:
 
 
 Personal improvement ideas: 
-- VALIDATIONS -> only legit values to be provided by user
 - full crud (for troubleshooting/testing)
 - add indices
 - "transfer money" -> from default -> if not enough money, from savings
