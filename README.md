@@ -19,6 +19,8 @@ Functional requirements:
    
 9. Transaction costs 1 euro.
 
+**Notes:**
+- when returning transactions by user, we also return transactions of deleted users/accounts (for audit purposes).
 
 
 
