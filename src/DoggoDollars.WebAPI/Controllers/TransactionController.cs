@@ -18,12 +18,7 @@ public class TransactionController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAsync()
     {
-        var transactions = await _transactionService.GetAsync();
-
-        if (transactions.Any())
-            return Ok(transactions);
-        else
-            return NoContent();
+        return Ok(await _transactionService.GetAsync());
     }
 
     [HttpPost]
