@@ -36,8 +36,6 @@ internal class TransactionRepository : ITransactionRepository
     {
         var sql = "SELECT \"Transactions\".\"Id\", \"Timestamp\", \"Transactions\".\"TypeId\", \"CorrespondingAccount\", \"Account\", \"Amount\", \"Fees\" FROM \"Transactions\" JOIN \"Accounts\" ON \"Transactions\".\"Account\" = \"Accounts\".\"Id\" WHERE \"Accounts\".\"UserId\" = @id;";
 
-        var result = await _connection.QueryAsync<TransactionEntity>(sql, new { id = id });
-
-        return result.ToList();
+        return (await _connection.QueryAsync<TransactionEntity>(sql, new { id = id })).ToList();
     }
 }

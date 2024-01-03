@@ -34,7 +34,7 @@ internal class AccountRepository : IAccountRepository
         return await _connection.QuerySingleAsync<AccountEntity>(sql, account);
     }
 
-    public async Task<AccountEntity?> GetAsync(string id)
+    public async Task<AccountEntity?> GetAsync(string? id)
     {
         var sql = "SELECT * FROM \"Accounts\" WHERE \"Id\" = @id AND \"IsDeleted\" = FALSE;";
 
