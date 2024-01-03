@@ -28,10 +28,4 @@ public class AccountController : ControllerBase
     {
         return Ok(await _accountService.TopUpAsync(id, amount.Amount));
     }
-
-    [HttpGet("{id}/transactions")]
-    public async Task<IActionResult> GetTransactionsAsync(int id)
-    {
-        return Ok("in progress");
-    }
 }
