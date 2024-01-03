@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using Application.Dtos;
+using Dapper;
 using Domain.Entities;
 using Domain.Interfaces;
 using System;
@@ -31,5 +32,19 @@ internal class AccountRepository : IAccountRepository
         var sql = "INSERT INTO \"Accounts\" (\"Id\", \"UserId\", \"TypeId\") VALUES (@Id, @UserId, @TypeId) RETURNING *;";
 
         return await _connection.QuerySingleAsync<AccountEntity>(sql, account);
+    }
+
+    public async Task<AccountEntity?> GetAsync(string id)
+    {
+        var sql = "SELECT * FROM \"Accounts\" WHERE \"Id\" = @id AND \"IsDeleted\" = FALSE;";
+
+        return await _connection.QuerySingleOrDefaultAsync<AccountEntity>(sql, new { id = id });
+    }
+
+    public async Task<AccountEntity> ChangeBalanceAsync(string id, decimal amount)
+    {
+        var sql = "UPDATE \"Accounts\" SET \"Balance\" = \"Balance\" + @amount WHERE \"Id\" = @id RETURNING *;";
+
+        return await _connection.QuerySingleAsync<AccountEntity>(sql, new { id = id, amount = amount });
     }
 }

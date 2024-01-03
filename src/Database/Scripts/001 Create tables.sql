@@ -28,7 +28,7 @@ CREATE TABLE "TransactionTypes" (
 CREATE TABLE "Transactions" (
 	"Id" SERIAL PRIMARY KEY NOT NULL,
 	"Timestamp" TIMESTAMP NOT NULL,
-	"TransactionType" INT NOT NULL,
+	"TypeId" INT NOT NULL,
 	"FromAccount" CHAR(8) DEFAULT NULL,
 	"ToAccount" CHAR(8) NOT NULL,
 	"Amount" DECIMAL CONSTRAINT positive_amount CHECK ("Amount" > 0),

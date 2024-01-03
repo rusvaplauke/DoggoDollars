@@ -5,13 +5,13 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3F00D482-51F1-4E26-AC6E-E734FC8183BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Domain\Domain.csproj", "{A8084260-FAA9-4609-9182-1EBFFFA638B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Domain\Domain.csproj", "{A8084260-FAA9-4609-9182-1EBFFFA638B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{89622F05-CD3D-4C74-A9FD-C8A5187BB419}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{89622F05-CD3D-4C74-A9FD-C8A5187BB419}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Application\Application.csproj", "{1D66818A-5E2F-4BB7-B78B-3C64E76B09A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Application\Application.csproj", "{1D66818A-5E2F-4BB7-B78B-3C64E76B09A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoggoDollars.WebAPI", "src\DoggoDollars.WebAPI\DoggoDollars.WebAPI.csproj", "{23BB39A7-473A-42C9-8EF3-C45C3DBE76F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoggoDollars.WebAPI", "src\DoggoDollars.WebAPI\DoggoDollars.WebAPI.csproj", "{23BB39A7-473A-42C9-8EF3-C45C3DBE76F4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "src\Database\Database.csproj", "{AAC3215B-3971-4ED6-B008-C6596DD88372}"
 EndProject

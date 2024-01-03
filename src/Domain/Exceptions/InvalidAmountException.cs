@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Exceptions;
 
-public class AccountNotFoundException : Exception
+public class InvalidAmountException : Exception
 {
-    public AccountNotFoundException(string accountId) : base($"Account {accountId} not found.")
+    public InvalidAmountException() : base($"Invalid amount: the top-up amount should be greater than 0.")
     {
 
     }
