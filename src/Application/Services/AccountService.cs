@@ -13,6 +13,8 @@ public class AccountService
     private readonly ITransactionRepository _transactionRepository;
     private readonly IMapper _mapper;
 
+    const int MAXACCOUNTS = 2;
+
     public AccountService(IAccountRepository accountRepository, IUserRepository userRepository, ITransactionRepository transactionRepository, IMapper mapper)
     {
         _accountRepository = accountRepository;
@@ -26,10 +28,8 @@ public class AccountService
         if (await _userRepository.GetByIdAsync(account.UserId) is null)
             throw new UserNotFoundException(account.UserId);
 
-        if (await _accountRepository.CountByUserIdAsync(account.UserId) >= 2)
+        if (await _accountRepository.CountByUserIdAsync(account.UserId) >= MAXACCOUNTS)
             throw new MaxAccountsException();
-
-        // typeId doesn't exist
 
         AccountEntity newAccount = new AccountEntity
         {

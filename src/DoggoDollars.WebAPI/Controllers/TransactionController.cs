@@ -6,6 +6,7 @@ namespace DoggoDollars.WebAPI.Controllers;
 
 [ApiController]
 [Route("transactions")]
+
 public class TransactionController : ControllerBase
 {
     private readonly TransactionService _transactionService;
@@ -25,6 +26,6 @@ public class TransactionController : ControllerBase
     public async Task<IActionResult> PostAsync([FromBody] TransactionRequest transaction)
     {
         await _transactionService.PostAsync(transaction);
-        return Ok();
+        return NoContent();
     }
 }

@@ -11,12 +11,14 @@
     <None Remove="Scripts\001 Create tables.sql" />
     <None Remove="Scripts\002 Add types.sql" />
     <None Remove="Scripts\004 Alter Transactions.sql" />
+    <None Remove="Scripts\005 Add indices.sql" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Scripts\001 Create tables.sql" />
     <EmbeddedResource Include="Scripts\002 Add types.sql" />
     <EmbeddedResource Include="Scripts\004 Alter Transactions.sql" />
+    <EmbeddedResource Include="Scripts\005 Add indices.sql" />
   </ItemGroup>
 
   <ItemGroup>
