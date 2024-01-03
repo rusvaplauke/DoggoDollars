@@ -1,7 +1,7 @@
 
-using Infrastructure;
 using Application;
 using DoggoDollars.WebAPI.Middlewares;
+using Infrastructure;
 
 namespace DoggoDollars.WebAPI
 {

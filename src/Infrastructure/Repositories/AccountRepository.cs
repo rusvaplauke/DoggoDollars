@@ -1,13 +1,7 @@
-﻿using Application.Dtos;
-using Dapper;
+﻿using Dapper;
 using Domain.Entities;
 using Domain.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories;
 
@@ -34,14 +28,14 @@ internal class AccountRepository : IAccountRepository
         return await _connection.QuerySingleAsync<AccountEntity>(sql, account);
     }
 
-    public async Task<AccountEntity?> GetAsync(string id)
+    public async Task<AccountEntity?> GetAsync(string? id)
     {
         var sql = "SELECT * FROM \"Accounts\" WHERE \"Id\" = @id AND \"IsDeleted\" = FALSE;";
 
         return await _connection.QuerySingleOrDefaultAsync<AccountEntity>(sql, new { id = id });
     }
 
-    public async Task<AccountEntity> ChangeBalanceAsync(string id, decimal amount)
+    public async Task<AccountEntity> ChangeBalanceAsync(string? id, decimal amount)
     {
         var sql = "UPDATE \"Accounts\" SET \"Balance\" = \"Balance\" + @amount WHERE \"Id\" = @id RETURNING *;";
 

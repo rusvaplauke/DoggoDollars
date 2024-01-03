@@ -1,13 +1,8 @@
-﻿using Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Application.Dtos;
+﻿using Application.Dtos;
 using AutoMapper;
-using Domain.Exceptions;
 using Domain.Entities;
+using Domain.Exceptions;
+using Domain.Interfaces;
 
 namespace Application.Services;
 
@@ -39,7 +34,7 @@ public class UserService
         if (await _userRepository.GetByIdIncludeDeletedAsync(id) is null)
             throw new UserNotFoundException(id);
 
-        List<TransactionEntity> transactions = await _transactionRepository.GetAsync(id); 
+        List<TransactionEntity> transactions = await _transactionRepository.GetAsync(id);
 
         return transactions.Select(t => _mapper.Map<Transaction>(t)).ToList();
     }

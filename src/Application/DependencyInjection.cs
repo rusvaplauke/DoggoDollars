@@ -1,8 +1,6 @@
 ﻿using Application.Profiles;
 using Application.Services;
 using Microsoft.Extensions.DependencyInjection;
-using System.Data;
-using System.Reflection;
 
 namespace Application;
 

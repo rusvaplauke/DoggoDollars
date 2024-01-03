@@ -1,13 +1,7 @@
 ﻿using Dapper;
 using Domain.Entities;
 using Domain.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories;
 
@@ -27,7 +21,7 @@ internal class TransactionRepository : ITransactionRepository
         await _connection.ExecuteAsync(sql, transaction);
     }
 
-   public async Task<List<TransactionEntity>> GetAsync() 
+    public async Task<List<TransactionEntity>> GetAsync()
     {
         return (await _connection.QueryAsync<TransactionEntity>("SELECT * FROM \"Transactions\";")).ToList();
     }
