@@ -36,7 +36,10 @@ public class UserService
 
     public async Task<List<Transaction>> GetAsync(int id)
     {
-        List<TransactionEntity> transactions = await _transactionRepository.GetAsync(id);
+        if (await _userRepository.GetByIdIncludeDeletedAsync(id) is null)
+            throw new UserNotFoundException(id);
+
+        List<TransactionEntity> transactions = await _transactionRepository.GetAsync(id); 
 
         return transactions.Select(t => _mapper.Map<Transaction>(t)).ToList();
     }

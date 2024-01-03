@@ -28,6 +28,13 @@ internal class UserRepository : IUserRepository
         return await _connection.QuerySingleOrDefaultAsync<UserEntity>(sql, new { id = id });
     }
 
+    public async Task<UserEntity?> GetByIdIncludeDeletedAsync(int id)
+    {
+        var sql = "SELECT * FROM \"Users\" WHERE \"Id\" = @id;";
+
+        return await _connection.QuerySingleOrDefaultAsync<UserEntity>(sql, new { id = id });
+    }
+
     public async Task<UserEntity> CreateAsync(UserEntity user)
     {
         string sql = "INSERT INTO \"Users\" (\"Name\", \"Address\") VALUES (@Name, @Address) RETURNING *;";

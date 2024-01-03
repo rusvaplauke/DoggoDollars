@@ -62,7 +62,7 @@ public class AccountService
         {
             TypeId = 1,
             Timestamp = DateTime.UtcNow,
-            ToAccount = id,
+            Account = id,
             Amount = amount,
             Fees = 0
         };
