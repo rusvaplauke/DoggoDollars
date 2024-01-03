@@ -35,16 +35,17 @@ public class ErrorHandlingMiddleware
             case AccountNotFoundException:
                 statusCode = (int)HttpStatusCode.NotFound;
                 break;
-            // figure out status code
             case InsufficientFundsException:
+                statusCode = (int)HttpStatusCode.BadRequest;
+                break;
+            case InvalidAmountException:
                 statusCode = (int)HttpStatusCode.BadRequest;
                 break;
             case UserNotFoundException:
                 statusCode = (int)HttpStatusCode.NotFound;
                 break;
-            // figure out status code
             case MaxAccountsException:
-                statusCode = (int)HttpStatusCode.Conflict;
+                statusCode = (int)HttpStatusCode.Forbidden;
                 break;
             case UserExistsException:
                 statusCode = (int)HttpStatusCode.Conflict;

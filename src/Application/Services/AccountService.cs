@@ -55,11 +55,13 @@ public class AccountService
         if (await _accountRepository.GetAsync(id) is null)
             throw new AccountNotFoundException(id);
 
+        if (amount <= 0)
+            throw new InvalidAmountException();
+
         Transaction transaction = new Transaction
         {
             TypeId = 1,
             Timestamp = DateTime.UtcNow,
-            FromAccount = "",
             ToAccount = id,
             Amount = amount,
             Fees = 0
