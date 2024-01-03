@@ -25,7 +25,6 @@ Functional requirements:
 
 
 Personal improvement ideas: 
-- VALIDATIONS -> only legit values to be provided by user
 - full crud (for troubleshooting/testing)
 - add indices
 - "transfer money" -> from default -> if not enough money, from savings
