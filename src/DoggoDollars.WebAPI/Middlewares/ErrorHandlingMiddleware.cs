@@ -50,6 +50,9 @@ public class ErrorHandlingMiddleware
             case UserExistsException:
                 statusCode = (int)HttpStatusCode.Conflict;
                 break;
+            case SameAccountException:
+                statusCode = (int)HttpStatusCode.BadRequest;
+                break;
             default:
                 statusCode = (int)HttpStatusCode.InternalServerError;
                 break;

@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
 using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Application.Dtos;
 
 namespace Application.Profiles;
@@ -15,5 +10,12 @@ internal class TransactionProfile : Profile
     {
         CreateMap<TransactionEntity, Transaction>();
         CreateMap<TransactionEntity, Transaction>().ReverseMap();
+
+        CreateMap<TransactionEntity, TransactionRequest>()
+            .ForMember(req => req.ReceiverAccount, opt => opt.MapFrom(ent => ent.CorrespondingAccount))
+            .ForMember(req => req.SenderAccount, opt => opt.MapFrom(ent => ent.Account));
+        CreateMap<TransactionRequest, TransactionEntity>()
+            .ForMember(ent => ent.CorrespondingAccount, opt => opt.MapFrom(req => req.ReceiverAccount))
+            .ForMember(ent => ent.Account, opt => opt.MapFrom(req => req.SenderAccount));
     }
 }

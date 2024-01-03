@@ -22,8 +22,10 @@ public class TransactionController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostAsync([FromBody] Transaction transaction)
+    public async Task<IActionResult> PostAsync([FromBody] TransactionRequest transaction)
     {
-        return Ok("Transaction in progress");
+        Transaction result = await _transactionService.PostAsync(transaction);
+        
+        return Created(nameof(PostAsync), result);
     }
 }

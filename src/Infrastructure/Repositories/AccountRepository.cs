@@ -41,7 +41,7 @@ internal class AccountRepository : IAccountRepository
         return await _connection.QuerySingleOrDefaultAsync<AccountEntity>(sql, new { id = id });
     }
 
-    public async Task<AccountEntity> ChangeBalanceAsync(string id, decimal amount)
+    public async Task<AccountEntity> ChangeBalanceAsync(string? id, decimal amount)
     {
         var sql = "UPDATE \"Accounts\" SET \"Balance\" = \"Balance\" + @amount WHERE \"Id\" = @id RETURNING *;";
 
